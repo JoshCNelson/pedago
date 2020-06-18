@@ -1,0 +1,22 @@
+body {
+  height: 100%;
+}
+#root {
+  min-height: 100vh;
+}
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: lightblue;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  padding: 10px 20px;
+}

@@ -6,6 +6,8 @@ import EventDetailFooter from './EventDetailFooter.js';
 import EventDetailHeader from './EventDetailHeader.js';
 // NOTE ADD PROP TYPES
 
+import { format } from 'date-fns';
+
 const EventDetailModal = (props) => {
 
   // NOTE: In a production-level app I would not advocate
@@ -16,6 +18,8 @@ const EventDetailModal = (props) => {
 
   const fetchData = async () => {
     const response = await axios.get('https://www.mocky.io/v2/5d3752f1310000fc74b0788d')
+
+    console.log(format(new Date("2019-08-28T17:00"), 'iiii'));
 
     console.log(response.data);
     setData(response.data);
@@ -30,6 +34,52 @@ const EventDetailModal = (props) => {
 
   const onClick = () => {
     props.onClick();
+  }
+
+  const startDate = () => {
+    if (!data.startDate) { return 'Loading...' }
+
+    const dateFormat = "iiii', 'LLLL' 'dd"
+    return format(new Date(data.startDate), dateFormat);
+  }
+
+  const startEndTime = () => {
+    if (!data.startDate || !data.endDate) { return 'Loading...' }
+
+    const startDateFormat = 'p';
+    const startTime = format(new Date(data.startDate), startDateFormat);
+
+    const endDateFormat = 'p';
+    const endTime = format(new Date(data.endDate), endDateFormat);
+
+    return `${startTime} - ${endTime} ADD LATER`;
+  }
+
+  const description = () => {
+    if (!data.description) { return 'Loading...' }
+
+    if (readMore) {
+      return data.description;
+    }
+
+    return `${data.description.substring(0, 47)}...`;
+  }
+
+  const location = () => {
+    if (!data.location) { return 'Loading...' }
+
+    return (
+      <>
+        <h2>Location</h2>
+        <p>{data.location.name}</p>
+        <p>201 S Market St</p>
+        <p>San Jose, CA 95113</p>
+        <p
+          className="get-directions">
+          Get Directions
+        </p>
+      </>
+    )
   }
 
   return (
@@ -50,26 +100,19 @@ const EventDetailModal = (props) => {
       <div className="details">
         <div>
           <h2>Date & Time</h2>
-          <p>Wednesday, August 28</p>
-          <p>5:00 PM - 7:00 PM PST</p>
+          <p>{startDate()}</p>
+          <p>{startEndTime()}</p>
         </div>
         <div>
           <h2>Description</h2>
-          <p>{data.description}</p>
+          <p>{description()}</p>
           <p
             className="read-more"
             onClick={() => { setReadMore(!readMore) }}
           >Read More</p>
         </div>
         <div>
-          <h2>Location</h2>
-          <p>The Tech Interactive</p>
-          <p>201 S Market St</p>
-          <p>San Jose, CA 95113</p>
-          <p
-            className="get-directions">
-            Get Directions
-          </p>
+          {location()}
         </div>
       </div>
       <EventDetailFooter />

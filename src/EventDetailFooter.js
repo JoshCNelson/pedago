@@ -3,9 +3,11 @@ import React from 'react';
 const EventDetailFooter = () => {
   return (
     <div className="footer">
-      <button
-        onSubmit={() => { console.log('hello') }}
-      >RSVP</button>
+      <a href="#">
+        <div>
+          <span>RSVP</span>
+        </div>
+      </a>
     </div>
   );
 }

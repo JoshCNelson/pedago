@@ -20,3 +20,8 @@ body {
 button {
   padding: 10px 20px;
 }
+
+h1, h2, p {
+  font-family: Helvetica, sans-serif;
+  color: black;
+}

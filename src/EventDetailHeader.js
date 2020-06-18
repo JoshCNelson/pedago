@@ -1,7 +1,5 @@
 import React from 'react';
 
-import './EventDetailHeader.css';
-
 const EventDetailHeader = () => {
   return (
     <div

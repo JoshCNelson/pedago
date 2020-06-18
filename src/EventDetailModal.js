@@ -12,6 +12,7 @@ const EventDetailModal = (props) => {
   // stashing all the incoming data into one data object
   // however I will do so here for the sake of brevity
   const [data, setData] = useState({});
+  const [readMore, setReadMore] = useState(false);
 
   const fetchData = async () => {
     const response = await axios.get('https://www.mocky.io/v2/5d3752f1310000fc74b0788d')
@@ -38,7 +39,14 @@ const EventDetailModal = (props) => {
         onClick={onClick}>
         X
       </div>
-      <EventDetailHeader eventName={data.name} />
+      <EventDetailHeader
+        eventName={data.name}
+
+        // in a production-level app I would advocate
+        // for a loading image fallback
+        image={data.image}
+        locale={data.location ? data.location.address.addressLocality : 'LOADING'}
+        locationName={data.location ? data.location.name : 'LOADING'} />
       <div className="details">
         <div>
           <h2>Date & Time</h2>
@@ -48,14 +56,20 @@ const EventDetailModal = (props) => {
         <div>
           <h2>Description</h2>
           <p>{data.description}</p>
-          <p>Read More</p>
+          <p
+            className="read-more"
+            onClick={() => { setReadMore(!readMore) }}
+          >Read More</p>
         </div>
         <div>
           <h2>Location</h2>
           <p>The Tech Interactive</p>
           <p>201 S Market St</p>
           <p>San Jose, CA 95113</p>
-          <p>Get Directions</p>
+          <p
+            className="get-directions">
+            Get Directions
+          </p>
         </div>
       </div>
       <EventDetailFooter />

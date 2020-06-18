@@ -24,6 +24,19 @@
 }
 
 /* HEADER */
+.header {
+  background-size: cover;
+  height: 250px;
+  border-radius: inherit;
+}
+
+.header div {
+  position: absolute;
+  bottom: 61%;
+  left: 5%;
+  z-index: 1;
+}
+
 .header h1,
 .header p {
   color: white;
@@ -51,6 +64,13 @@
 /* DETAILS */
 .modal .details {
   padding: 20px;
+
+  /*  
+    NOTE: may need to dynamically remove this
+    also need to add a set height in short term
+  */
+  overflow: scroll;
+  height: 200px;
 }
 
 .modal .details div {
@@ -64,6 +84,17 @@
 
 .modal .details p {
   font-weight: 300;
+}
+
+.modal .read-more,
+.modal .get-directions {
+  color: red;
+  cursor: pointer;
+}
+
+.modal .read-more:hover,
+.modal .get-directions:hover {
+  font-weight: 500;
 }
 
 

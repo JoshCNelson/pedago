@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { MdClose } from 'react-icons/md';
 import axios from 'axios';
 import './EventDetailModal.css';
 
@@ -18,8 +19,6 @@ const EventDetailModal = (props) => {
 
   const fetchData = async () => {
     const response = await axios.get('https://www.mocky.io/v2/5d3752f1310000fc74b0788d')
-
-    console.log(format(new Date("2019-08-28T17:00"), 'iiii'));
 
     console.log(response.data);
     setData(response.data);
@@ -87,7 +86,7 @@ const EventDetailModal = (props) => {
       <div
         className="close"
         onClick={onClick}>
-        X
+        <MdClose />
       </div>
       <EventDetailHeader
         eventName={data.name}
@@ -115,7 +114,8 @@ const EventDetailModal = (props) => {
           {location()}
         </div>
       </div>
-      <EventDetailFooter />
+      <EventDetailFooter url={data.offers ? data.offers.url : '#'} />
+      {/* <img src="./assignment.png" /> */}
     </div >
   );
 }

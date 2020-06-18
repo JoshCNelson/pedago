@@ -1,11 +1,13 @@
 import React from 'react';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
-const EventDetailFooter = () => {
+const EventDetailFooter = (props) => {
   return (
     <div className="footer">
-      <a href="#">
+      <a href={props.url}>
         <div>
           <span>RSVP</span>
+          <FaExternalLinkAlt />
         </div>
       </a>
     </div>

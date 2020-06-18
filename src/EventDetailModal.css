@@ -1,7 +1,7 @@
 .modal {
   height: 600px;
   border-radius: 10px;
-  width: 375px;
+  width: 370px;
   background: white;
   box-sizing: border-box;
   box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
@@ -13,7 +13,7 @@
   position: absolute;
   right: 10px;
   top: 10px;
-  padding: 10px;
+  margin: 5px;
   cursor: pointer;
   z-index: 1;
 }
@@ -35,6 +35,11 @@
   bottom: 61%;
   left: 5%;
   z-index: 1;
+}
+
+.modal svg {
+  height: 25px;
+  width: auto;
 }
 
 .header h1,
@@ -65,7 +70,7 @@
 .modal .details {
   padding: 20px;
 
-  /*  
+  /*
     NOTE: may need to dynamically remove this
     also need to add a set height in short term
   */
@@ -89,7 +94,7 @@
 
 .modal .read-more,
 .modal .get-directions {
-  color: red;
+  color: #FB4D63;
   cursor: pointer;
 }
 
@@ -114,14 +119,14 @@
 
 .modal .footer a {
   text-decoration: none;
-  width: 80%;
+  width: 330px;
 }
 
 .modal .footer div {
-  background-color: red;
+  background-color: #FB4D63;
   color: white;
   border-radius: 10px;
-  height: 50px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -131,4 +136,9 @@
   font-family: Helvetica;
   font-weight: bold;
   font-size: 20px;
+  margin-right: 5px;
+}
+
+.footer svg {
+  margin-bottom: 4px;
 }

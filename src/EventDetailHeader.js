@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EventDetailHeader = () => {
+const EventDetailHeader = (props) => {
   return (
     <div
       className="header"
@@ -17,7 +17,7 @@ const EventDetailHeader = () => {
         zIndex: "1"
       }}>
         <h1>The Tech Interactive, San Jose</h1>
-        <p>San Jose Meetup</p>
+        <p>{props.eventName}</p>
       </div>
     </div>
   );

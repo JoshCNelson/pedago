@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import './EventDetailModal.css';
 
 import EventDetailFooter from './EventDetailFooter.js';
@@ -7,8 +8,23 @@ import EventDetailHeader from './EventDetailHeader.js';
 
 const EventDetailModal = (props) => {
 
+  // NOTE: In a production-level app I would not advocate
+  // stashing all the incoming data into one data object
+  // however I will do so here for the sake of brevity
+  const [data, setData] = useState({});
+
+  const fetchData = async () => {
+    const response = await axios.get('https://www.mocky.io/v2/5d3752f1310000fc74b0788d')
+
+    console.log(response.data);
+    setData(response.data);
+  }
+
+  // NOTE: My assumption here is that we will fetch the data
+  // when we press the button as opposed to preloading
+  // the data before we click into see the event details
   useEffect(() => {
-    console.log("I hath been opened! Make an axios request")
+    fetchData();
   }, [])
 
   const onClick = () => {
@@ -22,7 +38,7 @@ const EventDetailModal = (props) => {
         onClick={onClick}>
         X
       </div>
-      <EventDetailHeader />
+      <EventDetailHeader eventName={data.name} />
       <div className="details">
         <div>
           <h2>Date & Time</h2>
@@ -31,7 +47,7 @@ const EventDetailModal = (props) => {
         </div>
         <div>
           <h2>Description</h2>
-          <p>A long desc goes here. It should cut..</p>
+          <p>{data.description}</p>
           <p>Read More</p>
         </div>
         <div>

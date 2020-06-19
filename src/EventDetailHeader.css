@@ -1,0 +1,36 @@
+.header {
+  background-size: cover;
+  border-radius: inherit;
+  height: 250px;
+}
+
+.header div {
+  bottom: 61%;
+  left: 5%;
+  position: absolute;
+  z-index: 1;
+}
+
+.header h1,
+.header div p {
+  color: white;
+}
+
+.header h1 {
+  font-weight: 100;
+}
+
+.header div p {
+  font-size: 24px;
+  font-weight: bold;
+  padding-top: 5px;
+}
+
+.modal .header::after {
+  background-image: linear-gradient(to bottom, transparent 55%, black 85%);
+  content: '';
+  display: block;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}

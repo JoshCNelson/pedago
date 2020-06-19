@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import EventDetailModal from './EventDetailModal';
+
 import './reset.css';
 import './app.css'
 
-import EventDetailModal from './EventDetailModal';
 
 function App() {
   const [modalOpen, setModalOpen] = useState(true);
@@ -12,12 +13,9 @@ function App() {
   return (
     <div className="container">
       <div className="wrapper">
-        {/* <img src="./assignment.png" /> */}
         {
           modalOpen ?
-            <EventDetailModal
-              onClick={setModalOpen}
-            />
+            <EventDetailModal onClick={setModalOpen} />
             :
             <button onClick={onClick}>View Event</button>
         }

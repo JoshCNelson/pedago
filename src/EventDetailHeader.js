@@ -1,16 +1,21 @@
 import React from 'react';
 import { string } from 'prop-types';
 
-const EventDetailHeader = (props) => {
+import './EventDetailHeader.css';
+
+const EventDetailHeader = ({
+  eventName,
+  image,
+  locale,
+  locationName
+}) => {
   return (
     <div
       className="header"
-      style={{
-        backgroundImage: `url(${props.image})`,
-      }}>
+      style={{ backgroundImage: `url(${image})` }}>
       <div>
-        <h1>{props.locationName}, {props.locale}</h1>
-        <p>{props.eventName}</p>
+        <h1>{locationName}, {locale}</h1>
+        <p>{eventName}</p>
       </div>
     </div>
   );
@@ -21,6 +26,6 @@ EventDetailHeader.propTypes = {
   image: string,
   locale: string,
   locationName: string,
-}
+};
 
 export default EventDetailHeader;

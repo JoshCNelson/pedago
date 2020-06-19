@@ -1,46 +1,27 @@
 .modal {
-  height: 600px;
-  border-radius: 10px;
-  width: 370px;
   background: white;
-  box-sizing: border-box;
+  border-radius: 10px;
   box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
-  position: relative;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  height: 600px;
+  position: relative;
+  width: 370px;
 }
 
-.modal .close {
+.close {
   color: white;
+  cursor: pointer;
+  margin: 5px;
   position: absolute;
   right: 10px;
   top: 10px;
-  margin: 5px;
-  cursor: pointer;
   z-index: 1;
-}
-
-.modal h2,
-.modal p {
-  color: black;
 }
 
 .modal a {
   text-decoration: none;
-}
-
-/* HEADER */
-.header {
-  background-size: cover;
-  height: 250px;
-  border-radius: inherit;
-}
-
-.header div {
-  position: absolute;
-  bottom: 61%;
-  left: 5%;
-  z-index: 1;
 }
 
 .modal svg {
@@ -48,93 +29,33 @@
   width: auto;
 }
 
-.header h1,
-.header p {
-  color: white;
-}
-
-.header h1 {
-  font-weight: 100;
-}
-
-.header p {
-  font-size: 24px;
-  font-weight: bold;
-  padding-top: 5px;
-}
-
-.modal .header::after {
-  display: block;
-  position: relative;
-  background-image: linear-gradient(to bottom, transparent 55%, black 85%);
+.details {
   height: 100%;
-  width: 100%;
-  content: '';
-}
-
-/* DETAILS */
-.modal .details {
-  padding: 20px;
   overflow: scroll;
-  height: 100%;
+  padding: 20px;
 }
 
-.modal .details div {
-  margin-bottom: 20px;
+.details div {
   line-height: 140%;
+  margin-bottom: 20px;
 }
 
-.modal .details h2 {
+.details h2 {
   font-weight: bold;
 }
 
-.modal .details p {
-  font-weight: 300;
+.details p {
   font-size: 14px;
+  font-weight: 300;
 }
 
-.modal .read-more,
-.modal .get-directions {
+.read-more,
+.get-directions {
   color: #FB4D63;
   cursor: pointer;
 }
 
-.modal .read-more:hover,
-.modal .get-directions:hover {
+.read-more:hover,
+.get-directions:hover {
   font-weight: 500;
-}
-
-/* FOOTER */
-.modal .footer {
-  height: 80px;
-  display: flex;
-  justify-content: center;
-  padding-top: 10px;
-  box-sizing: border-box;
-}
-
-.modal .footer a {
-  text-decoration: none;
-  width: 330px;
-}
-
-.modal .footer div {
-  background-color: #FB4D63;
-  color: white;
-  border-radius: 5px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal .footer span {
-  font-family: Helvetica;
-  font-weight: bold;
-  font-size: 20px;
-  margin-right: 5px;
-}
-
-.footer svg {
-  margin-bottom: 4px;
 }

@@ -1,0 +1,33 @@
+.footer {
+  box-sizing: border-box;
+  display: flex;
+  height: 80px;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.footer a {
+  text-decoration: none;
+  width: 330px;
+}
+
+.footer div {
+  align-items: center;
+  background-color: #FB4D63;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+}
+
+.footer span {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.footer svg {
+  margin-bottom: 4px;
+}

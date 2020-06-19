@@ -4,6 +4,9 @@ import { string } from 'prop-types';
 
 import './EventDetailFooter.css';
 
+// NOTE: I intentionally did not use a button element
+// for the footer because using a button for the purpose
+// of navigating to another page is an accessibility violation
 const EventDetailFooter = ({ url }) => {
   return (
     <div className="footer">

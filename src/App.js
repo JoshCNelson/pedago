@@ -4,9 +4,8 @@ import EventDetailModal from './EventDetailModal';
 import './reset.css';
 import './app.css'
 
-
 function App() {
-  const [modalOpen, setModalOpen] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const onClick = () => { setModalOpen(!modalOpen) }
 

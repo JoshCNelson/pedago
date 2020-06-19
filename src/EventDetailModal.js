@@ -3,7 +3,12 @@ import EventDetailFooter from './EventDetailFooter.js';
 import EventDetailHeader from './EventDetailHeader.js';
 
 import { MdClose } from 'react-icons/md';
-import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
+import {
+  Map,
+  Marker,
+  Popup,
+  TileLayer
+} from 'react-leaflet'
 
 import axios from 'axios';
 import { format } from 'date-fns';

@@ -25,6 +25,10 @@
   color: black;
 }
 
+.modal a {
+  text-decoration: none;
+}
+
 /* HEADER */
 .header {
   background-size: cover;
@@ -117,7 +121,7 @@
 .modal .footer div {
   background-color: #FB4D63;
   color: white;
-  border-radius: 10px;
+  border-radius: 5px;
   height: 40px;
   display: flex;
   justify-content: center;

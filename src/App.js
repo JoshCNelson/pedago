@@ -12,6 +12,7 @@ function App() {
   return (
     <div className="container">
       <div className="wrapper">
+        {/* <img src="./assignment.png" /> */}
         {
           modalOpen ?
             <EventDetailModal

@@ -3,6 +3,8 @@ import { MdClose } from 'react-icons/md';
 import axios from 'axios';
 import './EventDetailModal.css';
 
+import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
+
 import EventDetailFooter from './EventDetailFooter.js';
 import EventDetailHeader from './EventDetailHeader.js';
 // NOTE ADD PROP TYPES
@@ -51,7 +53,10 @@ const EventDetailModal = (props) => {
     const endDateFormat = 'p';
     const endTime = format(new Date(data.endDate), endDateFormat);
 
-    return `${startTime} - ${endTime} ADD LATER`;
+    // NOTE: It was unclear if/how the timezone was to be derived so I hardcoded it.
+    // One possible solution with the current api data would be to use the location data
+    // and hit the Google Maps Timezone API to get the appropriate timezone
+    return `${startTime} - ${endTime} PST`;
   }
 
   const description = () => {
@@ -67,16 +72,42 @@ const EventDetailModal = (props) => {
   const location = () => {
     if (!data.location) { return 'Loading...' }
 
+    const {
+      addressCountry,
+      addressLocality,
+      addressRegion,
+      postalCode,
+      streetAddress
+    } = data.location.address;
+
+    const { latitude, longitude } = data.location.geo;
+
+    const encodedAddress = encodeURI(`${streetAddress} ${addressLocality} ${addressRegion} ${postalCode} ${addressCountry}`);
+
+    const position = [latitude, longitude];
+
     return (
       <>
         <h2>Location</h2>
         <p>{data.location.name}</p>
         <p>201 S Market St</p>
         <p>San Jose, CA 95113</p>
-        <p
-          className="get-directions">
-          Get Directions
-        </p>
+        <a
+          href={`https://www.google.com/maps/dir/?api=1&destination=${encodedAddress}`} >
+          <p
+            className="get-directions">
+            Get Directions
+        </p >
+        </a >
+        <Map
+          style={{ height: "120px", marginTop: "10px" }}
+          center={position}
+          zoom={10}>
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker position={position} />
+        </Map>
       </>
     )
   }
@@ -115,10 +146,8 @@ const EventDetailModal = (props) => {
         </div>
       </div>
       <EventDetailFooter url={data.offers ? data.offers.url : '#'} />
-      {/* <img src="./assignment.png" /> */}
     </div >
   );
 }
 
 export default EventDetailModal;
-      // src="https://via.placeholder.com/350x250.png/09f/fff" />
